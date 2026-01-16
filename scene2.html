@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfhalden</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+    <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script defer src="Components/indexLink.js"></script>
+  <script defer src="Components/soundSwitch.js"></script>
+
+
+</head>
+<body>
+
+    <a-scene>
+        <!-- BACKGROUND -------------------------------->
+        <a-assets>
+            <img id="sky" src="static/images/envMap/Wolfhalden.jpg">
+        </a-assets>
+        <a-sky rotation="0 130 0" src="#sky"></a-sky>
+
+        <!-- SOUND -------------------------------->
+        <a-sound id="background-sound" src="src: url(static/sounds/countryside.mp3)" autoplay="true" position="0 0 0" volume="3" sound="maxDistance: 3000" loop="true"></a-sound>
+
+
+        <!-- CONTROLS -------------------------------->
+        <a-entity id="cameraRig" rotation="0 0 0">
+            <!-- Camera -->
+            <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0" rotation="0 0 0">
+                <a-cursor objects="#cursor-blocks"></a-cursor>
+            </a-entity>
+        </a-entity>
+
+        <!-- LINK -------------------------------->
+        <a-box index-link id="cursor-blocks" position="-2 0 0.5" color="#ffffff" height="0.5" width="0.1" depth="0.8" rotation="0 0 45"></a-box>       
+        <a-entity text="value: beenden; color: #000" scale="2 2 2" position="-1.9 0.1 -0.32405" rotation="-45 90 0"></a-entity>
+
+        <!-- SOUND BUTTON -------------------------------->
+        <a-box sound-switch class="soundOn" id="cursor-blocks" position="-2 0 -0.5" color="#ffffff" height="0.5" width="0.1" depth="0.5" rotation="0 0 45"></a-box>        
+        <a-entity id="sound-text" text="value: Ton aus; color: #000" scale="2 2 2" position="-1.981 0.05 -1.32" rotation="-45 90 0"></a-entity>    
+    </a-scene>
+
+</body>
+</html>
